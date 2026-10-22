@@ -1,0 +1,367 @@
+<!doctype html><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; media-src data: blob:; base-uri 'none'; form-action 'none'">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Love Chapters</title>
+<style>
+:root{--bg:#0b1437;--bg2:#16235a;--gold:#ffd96b;--gold2:#e8c766;--cream:#f4ecd0;--mute:#b9c3e6;--card:rgba(255,255,255,.07);--line:rgba(232,199,102,.35)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;color:var(--cream);font-family:system-ui,"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;line-height:1.6;
+background:
+radial-gradient(1.5px 1.5px at 12% 18%,#fff8 50%,transparent 51%),
+radial-gradient(1px 1px at 78% 8%,#fff9 50%,transparent 51%),
+radial-gradient(1.5px 1.5px at 40% 55%,#ffd96b99 50%,transparent 51%),
+radial-gradient(1px 1px at 90% 62%,#fff8 50%,transparent 51%),
+radial-gradient(1px 1px at 25% 85%,#fff8 50%,transparent 51%),
+linear-gradient(180deg,var(--bg),var(--bg2));background-attachment:fixed}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+header{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;max-width:1040px;margin:0 auto}
+.logo{font-size:22px;font-weight:800;color:var(--gold);letter-spacing:.5px;margin:0}
+.logo .st{display:inline-block;animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.45;transform:scale(.85) rotate(20deg)}}
+.sw{display:flex;border:1px solid var(--gold);border-radius:20px;overflow:hidden}
+.sw button{background:none;border:0;padding:7px 14px;cursor:pointer;color:var(--gold);font-size:14px}
+.sw button[aria-pressed=true]{background:var(--gold);color:var(--bg);font-weight:800}
+main{max-width:1040px;margin:0 auto;padding:0 16px 40px}
+.lead{margin:0 0 16px;color:var(--mute);font-size:14px}
+.grid{display:grid;gap:18px}
+@media(min-width:860px){.grid{grid-template-columns:360px 1fr;align-items:start}.side{position:sticky;top:12px}}
+.side{display:grid;gap:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+h2{margin:0 0 12px;font-size:15px;color:var(--gold2);letter-spacing:1.5px;font-weight:700}
+.titlecard{text-align:center;border:2px solid var(--gold2);background:rgba(255,255,255,.06);border-radius:18px;padding:22px 16px}
+.titlecard .lab{font-size:13px;color:#c9b27a;letter-spacing:2px}
+.titlecard .em{font-size:52px;line-height:1.2;margin-top:6px}
+.titlecard .tt{font-size:23px;font-weight:800;color:var(--gold);margin:6px 0}
+.titlecard .ds{font-size:14px}
+.pop{animation:pop .5s ease}
+@keyframes pop{from{transform:scale(.94);opacity:.4}}
+.btn{background:var(--gold);color:var(--bg);border:0;border-radius:20px;padding:11px 18px;font-weight:800;cursor:pointer}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:none;border:1px solid var(--gold2);color:var(--gold);font-weight:600}
+.btn.sm{padding:7px 12px;font-size:13px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;justify-content:center}
+label,.lbl{display:block;font-size:12px;color:var(--mute);margin:0 0 4px}
+.f{margin-bottom:12px}
+input[type=text],input[type=number],textarea{width:100%;background:rgba(255,255,255,.08);border:1px solid var(--gold2);border-radius:10px;padding:10px 12px;font-size:16px}
+textarea{resize:vertical;min-height:64px}
+input::placeholder,textarea::placeholder{color:#8f9bc7}
+.two{display:grid;grid-template-columns:110px 1fr;gap:10px}
+.stars{display:flex;gap:4px}
+.stars button{background:none;border:0;font-size:30px;line-height:1;cursor:pointer;color:#5a6697;padding:2px 3px;transition:transform .15s}
+.stars button.on{color:var(--gold)}
+.stars button:hover{transform:scale(1.15)}
+.chk{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--cream);margin:0 0 12px}
+.chk input{width:18px;height:18px;accent-color:var(--gold)}
+.hint{font-size:12px;color:var(--mute)}
+.err{color:#ffb3b3;font-size:13px;min-height:18px;margin:4px 0}
+.rules{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.rules li{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:13px}
+.rules li.ok{border-color:var(--gold);background:rgba(255,217,107,.1)}
+.rules .e{font-size:24px}
+.rules b{color:var(--gold);display:block;font-size:14px}
+.rules .p{margin-left:auto;font-size:12px;color:var(--mute);white-space:nowrap}
+.tl{list-style:none;margin:0;padding:0 0 0 30px;position:relative}
+.tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold2),rgba(232,199,102,.15))}
+.item{position:relative;margin-bottom:16px;animation:pop .45s ease}
+.dot{position:absolute;left:-30px;top:14px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:2px solid var(--gold);display:grid;place-items:center;font-size:11px;color:var(--gold)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;position:relative}
+.meta{font-size:12px;color:var(--gold2);letter-spacing:1px}
+.badge{display:inline-block;margin-left:6px;background:rgba(255,217,107,.18);color:var(--gold);border-radius:10px;padding:0 8px;font-size:11px;letter-spacing:0}
+.nm{font-size:19px;font-weight:700;margin:2px 28px 0 0;word-break:break-word}
+.lv{font-size:13px;color:var(--mute)}
+.lv .s{color:var(--gold);letter-spacing:2px}
+.note{margin-top:10px;background:#f5e3a1;color:#0b1530;border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.7}
+.note small{display:block;font-size:11px;opacity:.75}
+.del{position:absolute;top:8px;right:8px;background:none;border:0;color:var(--mute);cursor:pointer;font-size:18px;width:32px;height:32px;border-radius:50%}
+.del:hover{background:rgba(255,255,255,.1);color:#fff}
+.future .card{border:2px dashed var(--gold);background:rgba(255,217,107,.06)}
+.future .dot{background:var(--gold);color:var(--bg)}
+.empty{text-align:center;color:var(--mute);padding:22px 8px;font-size:14px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(30px);background:var(--gold);color:var(--bg);padding:10px 18px;border-radius:20px;font-weight:700;font-size:14px;opacity:0;pointer-events:none;transition:.3s;max-width:90vw;text-align:center;z-index:9}
+.toast.show{opacity:1;transform:translateX(-50%)}
+.share{width:100%;margin-top:10px;font-size:13px!important;min-height:90px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <h1 class="logo"><span class="st" aria-hidden="true">★</span> Love Chapters</h1>
+  <div class="sw" role="group" data-demo="lang-switch" data-i18n-aria="langAria" aria-label="Language">
+    <button type="button" id="bJa" data-demo="lang-ja" aria-pressed="false">JP</button>
+    <button type="button" id="bEn" data-demo="lang-en" aria-pressed="true">EN</button>
+  </div>
+</header>
+<main>
+  <p class="lead" data-i18n="lead"></p>
+  <div class="grid">
+    <div class="side">
+      <section class="panel" aria-live="polite">
+        <div class="titlecard" id="titleCard" data-demo="title-result"></div>
+        <div class="row">
+          <button class="btn sm" type="button" id="shareBtn" data-demo="share-title" data-i18n="share"></button>
+        </div>
+        <textarea class="share" id="shareBox" data-demo="share-text" readonly hidden data-i18n-aria="shareAria"></textarea>
+      </section>
+
+      <form class="panel" id="addForm" data-demo="add-form" novalidate>
+        <h2 data-i18n="addH"></h2>
+        <div class="two">
+          <div class="f"><label for="fYear" data-i18n="year"></label><input type="number" id="fYear" data-demo="input-year" inputmode="numeric" min="1950"></div>
+          <div class="f"><label for="fName" data-i18n="name"></label><input type="text" id="fName" data-demo="input-name" maxlength="40" data-i18n-ph="namePh"></div>
+        </div>
+        <div class="f"><span class="lbl" data-i18n="level"></span><div class="stars" id="stars" role="radiogroup" data-demo="input-level" data-i18n-aria="levelAria"></div></div>
+        <label class="chk"><input type="checkbox" id="fOn" data-demo="input-ongoing"> <span data-i18n="ongoing"></span></label>
+        <div class="f"><label for="fNote" data-i18n="note"></label><textarea id="fNote" data-demo="input-note" maxlength="80" data-i18n-ph="notePh"></textarea><div class="hint" data-i18n="noteHint"></div></div>
+        <div class="err" id="err" role="alert"></div>
+        <button class="btn" type="submit" data-demo="add-entry" data-i18n="addBtn"></button>
+      </form>
+
+      <section class="panel">
+        <h2 data-i18n="rulesH"></h2>
+        <ul class="rules" id="rules" data-demo="rules-list"></ul>
+      </section>
+    </div>
+
+    <section aria-labelledby="tlH">
+      <div class="panel">
+        <h2 id="tlH" data-i18n="tlH"></h2>
+        <ol class="tl" id="tl" data-demo="timeline"></ol>
+        <div class="tools">
+          <button class="btn ghost sm" type="button" id="bSample" data-demo="reset-sample" data-i18n="sample"></button>
+          <button class="btn ghost sm" type="button" id="bClear" data-demo="clear-all" data-i18n="clear"></button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const I18N = {
+ja:{
+doc:"Love Chapters｜好きの年表",langAria:"言語切り替え",
+lead:"好きになった時期とハマり度を年表にして、ひとり時間にゆっくり振り返ろう。",
+labTitle:"✦ あなたの好きの称号 ✦",share:"✨ 称号をシェア用にコピー",shareAria:"シェア用テキスト",
+addH:"✎ 好きを足す",year:"時期（年）",name:"好きなもの・名前",namePh:"例：ギター、ミステリー小説",
+level:"ハマり度",levelAria:"ハマり度（5段階）",starN:"ハマり度 {n}",ongoing:"今も好き（続いている）",
+note:"未来の自分へ一言（任意）",notePh:"例：この夢中、忘れないでね",noteHint:"書くと「あの頃のあなたより」として年表に残ります。",
+addBtn:"年表に足す",rulesH:"✦ 称号のきまり方 ✦",tlH:"✦ 好きの年表 ✦",
+chapter:"第{n}章",yearFmt:"{y}年",lvLabel:"ハマり度",going:"今も",from:"あの頃のあなたより",del:"この章を消す",
+sample:"サンプルに戻す",clear:"全部消して白紙にする",
+errName:"好きなものの名前を入れてください。",errYear:"時期は1950年から今年までの数字で入れてください。",
+added:"年表に足しました ✦",deleted:"章を消しました",reset:"サンプルに戻しました",cleared:"白紙にしました",
+copied:"コピーしました！",copyFail:"下の文章をコピーしてね",
+futureMeta:"最終章 ・ 未来の章",futureH:"未来の自分は、何を好きになる？",futurePh:"例：来年は、ひとりで海外のライブに行く",futureSave:"未来の章を書く",futureEdit:"書き直す",futureSaved:"未来の章を書きました ✦",futureEmpty:"空っぽの章は書けません。",
+p_prog:"{a}/{b}",
+t_empty:"白紙のページ",d_empty:"まずは好きを1つ足してみましょう。ここから物語が始まります。",
+t_swamp:"深夜の沼の住人",d_swamp:"ハマったら底まで行く情熱家。気づけば誰より詳しくなっています。",
+t_keeper:"一途な山守り",d_keeper:"同じ好きを何年も守り続ける人。続ける力は立派な才能です。",
+t_traveler:"好きの旅人",d_traveler:"いろんな好きを渡り歩く冒険家。世界がどんどん広がっています。",
+t_stroll:"ゆるっと散歩人",d_stroll:"好きをほどよい距離で楽しむ達人。肩の力が抜けていて素敵です。",
+t_start:"星あつめ見習い",d_start:"好きの星を集めはじめたところ。次の一章が楽しみです。",
+r_swamp:"ハマり度★5が3つ以上",r_keeper:"同じ好きが5年以上",r_traveler:"好きが8個以上",r_stroll:"ハマり度が全体に低め（平均2.5以下・3個以上）",
+shareText:"📖 私の Love Chapters\n称号：「{t}」\n好きの数：{n}個\n{list}",
+sn_game:"ゲーム",sn_book:"ミステリー小説",sn_guitar:"ギター",sn_camp:"キャンプ",sn_coffee:"コーヒー巡り",
+sm_book:"夜更かしして読んだ日々が、今の好きの土台だよ。",sm_guitar:"この夢中、忘れないでね。",sm_coffee:"一杯ずつ、ちゃんと味わってね。"
+},
+en:{
+doc:"Love Chapters | Timeline of Things I Love",langAria:"Language",
+lead:"Map when you fell for things and how deep you went. Look back, slowly, in your own quiet time.",
+labTitle:"✦ Your Love Title ✦",share:"✨ Copy my title to share",shareAria:"Text to share",
+addH:"✎ Add something you love",year:"Year",name:"What you love",namePh:"e.g. Guitar, mystery novels",
+level:"How deep",levelAria:"How deep (5 levels)",starN:"Depth {n}",ongoing:"Still going",
+note:"A line to your future self (optional)",notePh:"e.g. Don't forget this feeling",noteHint:"If you write one, it appears as “From you, back then”.",
+addBtn:"Add to timeline",rulesH:"✦ How titles are earned ✦",tlH:"✦ Timeline of Loves ✦",
+chapter:"Chapter {n}",yearFmt:"{y}",lvLabel:"Depth",going:"Still going",from:"From you, back then",del:"Delete this chapter",
+sample:"Back to sample",clear:"Clear everything",
+errName:"Please enter the name of what you love.",errYear:"Enter a year between 1950 and this year.",
+added:"Added to your timeline ✦",deleted:"Chapter deleted",reset:"Sample restored",cleared:"Started a blank page",
+copied:"Copied!",copyFail:"Please copy the text below",
+futureMeta:"Final chapter · The Future",futureH:"What will future you fall in love with?",futurePh:"e.g. Next year, I'll go to a live show abroad alone",futureSave:"Write my future chapter",futureEdit:"Rewrite",futureSaved:"Future chapter written ✦",futureEmpty:"An empty chapter can't be saved.",
+p_prog:"{a}/{b}",
+t_empty:"A Blank Page",d_empty:"Add one thing you love to begin. Your story starts here.",
+t_swamp:"Midnight Swamp Dweller",d_swamp:"Once you fall in, you go all the way down. Before you know it, you know more than anyone.",
+t_keeper:"Devoted Mountain Keeper",d_keeper:"You stay loyal to one love for years. Staying power is a real talent.",
+t_traveler:"Traveler of Loves",d_traveler:"You wander through many passions. Your world keeps growing.",
+t_stroll:"Easy Stroller",d_stroll:"You enjoy things from a comfy distance. Relaxed and lovely.",
+t_start:"Star Collector in Training",d_start:"You've just started collecting stars. Excited for your next chapter!",
+r_swamp:"Three or more ★5 loves",r_keeper:"One love for 5+ years",r_traveler:"8 or more loves",r_stroll:"Low depth overall (avg 2.5 or less, 3+ loves)",
+shareText:"📖 My Love Chapters\nTitle: “{t}”\nLoves: {n}\n{list}",
+sn_game:"Video games",sn_book:"Mystery novels",sn_guitar:"Guitar",sn_camp:"Camping",sn_coffee:"Coffee hopping",
+sm_book:"The late nights spent reading are the base of what you love now.",sm_guitar:"Don't forget this feeling.",sm_coffee:"Taste every cup, one at a time."
+}};
+
+let lang='en';
+(function(){
+  let l=null;
+  if(window.APP_LANG==='ja'||window.APP_LANG==='en') l=window.APP_LANG;
+  if(!l){try{const q=new URLSearchParams(location.search).get('lang');if(q==='ja'||q==='en')l=q;}catch(e){}}
+  if(!l){try{const s=localStorage.getItem('lang');if(s==='ja'||s==='en')l=s;}catch(e){}}
+  lang=l||'en';
+})();
+const t=(k,v)=>{let s=(I18N[lang][k]!==undefined?I18N[lang][k]:k);if(v)for(const x in v)s=s.split('{'+x+'}').join(v[x]);return s};
+const NOW=new Date().getFullYear();
+const SAMPLE=()=>({entries:[
+ {id:1,year:2010,k:'game',emoji:'🎮',level:4},
+ {id:2,year:2013,k:'book',emoji:'📚',level:4,nk:'book'},
+ {id:3,year:2016,k:'guitar',emoji:'🎸',level:5,nk:'guitar',ongoing:true},
+ {id:4,year:2019,k:'camp',emoji:'🏕️',level:3},
+ {id:5,year:2022,k:'coffee',emoji:'☕',level:5,nk:'coffee'}
+],future:'',nextId:6});
+let data=load();
+function load(){try{const r=JSON.parse(localStorage.getItem('lc_data'));if(r&&Array.isArray(r.entries))return r}catch(e){}return SAMPLE()}
+function save(){try{localStorage.setItem('lc_data',JSON.stringify(data))}catch(e){}}
+const $=id=>document.getElementById(id);
+const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e};
+const nameOf=e=>e.k?t('sn_'+e.k):e.name;
+const noteOf=e=>e.nk?t('sm_'+e.nk):(e.note||'');
+const starStr=n=>'★'.repeat(n)+'☆'.repeat(5-n);
+
+const EMO=[[/ゲーム|game/i,'🎮'],[/本|小説|book|novel|read|manga|漫画/i,'📚'],[/ギター|guitar|バンド|band|music|音楽|ライブ|live|piano|ピアノ/i,'🎸'],[/キャンプ|camp|hik|登山/i,'🏕️'],[/コーヒー|coffee|カフェ|cafe|tea|紅茶/i,'☕'],[/映画|movie|film|cinema/i,'🎬'],[/アニメ|anime/i,'📺'],[/料理|cook|bake|パン|お菓子/i,'🍳'],[/旅|travel|trip/i,'✈️'],[/絵|draw|art|paint|イラスト/i,'🎨'],[/スポーツ|run|ラン|sport|サッカー|野球|soccer|swim|ヨガ|yoga/i,'🏃'],[/猫|cat|犬|dog|pet/i,'🐾'],[/写真|photo|camera|カメラ/i,'📷'],[/アイドル|推し|idol/i,'💖']];
+const FALL=['🌟','🌙','🪐','🍀','🎈','🔭'];
+function pickEmoji(n){for(const [r,e] of EMO)if(r.test(n))return e;let h=0;for(const c of n)h=(h*31+c.charCodeAt(0))>>>0;return FALL[h%FALL.length]}
+
+/* ---- titles ---- */
+function calc(){
+  const es=data.entries,n=es.length;
+  const five=es.filter(e=>e.level===5).length;
+  const avg=n?es.reduce((a,e)=>a+e.level,0)/n:0;
+  const g={};
+  es.forEach(e=>{const key=e.k||e.name.trim().toLowerCase();(g[key]=g[key]||[]).push(e)});
+  let span=0;
+  for(const k in g){const ys=g[k].map(e=>e.year);const mn=Math.min(...ys);let mx=Math.max(...ys);if(g[k].some(e=>e.ongoing))mx=NOW;span=Math.max(span,mx-mn)}
+  const lowOk=n>=3&&avg<=2.5;
+  return{n,five,avg,span,swamp:five>=3,keeper:span>=5,traveler:n>=8,stroll:lowOk};
+}
+function pickTitle(c){
+  if(!c.n)return{id:'empty',e:'📖'};
+  if(c.swamp)return{id:'swamp',e:'🛁'};
+  if(c.keeper)return{id:'keeper',e:'🏔️'};
+  if(c.traveler)return{id:'traveler',e:'🧭'};
+  if(c.stroll)return{id:'stroll',e:'🌱'};
+  return{id:'start',e:'⭐'};
+}
+
+/* ---- render ---- */
+let lastTitle='';
+function renderTitle(){
+  const c=calc(),T=pickTitle(c),box=$('titleCard');
+  box.textContent='';
+  box.appendChild(el('div','lab',t('labTitle')));
+  box.appendChild(el('div','em',T.e));
+  box.appendChild(el('div','tt',t('t_'+T.id)));
+  box.appendChild(el('div','ds',t('d_'+T.id)));
+  if(lastTitle!==T.id){box.classList.remove('pop');void box.offsetWidth;box.classList.add('pop');lastTitle=T.id}
+  const R=$('rules');R.textContent='';
+  const rows=[
+   ['swamp','🛁',c.swamp,t('p_prog',{a:Math.min(c.five,3),b:3})],
+   ['keeper','🏔️',c.keeper,t('p_prog',{a:Math.min(c.span,5),b:5})],
+   ['traveler','🧭',c.traveler,t('p_prog',{a:Math.min(c.n,8),b:8})],
+   ['stroll','🌱',c.stroll,c.n?('Ø '+c.avg.toFixed(1)):'–']];
+  rows.forEach(([id,e,ok,p])=>{
+    const li=el('li',ok?'ok':'');li.appendChild(el('span','e',e));
+    const d=el('div');d.appendChild(el('b','',t('t_'+id)));d.appendChild(document.createTextNode(t('r_'+id)));
+    li.appendChild(d);li.appendChild(el('span','p',(ok?'✓ ':'')+p));R.appendChild(li);
+  });
+}
+function sorted(){return data.entries.slice().sort((a,b)=>a.year-b.year||a.id-b.id)}
+function renderTimeline(){
+  const tl=$('tl');tl.textContent='';
+  const es=sorted();
+  if(!es.length){tl.appendChild(el('li','empty',t('d_empty')))}
+  es.forEach((e,i)=>{
+    const li=el('li','item');
+    li.appendChild(el('span','dot','★'));
+    const card=el('div','card');card.setAttribute('data-demo','chapter-card');
+    const m=el('div','meta',t('chapter',{n:i+1})+' ・ '+t('yearFmt',{y:e.year}));
+    if(e.ongoing)m.appendChild(el('span','badge',t('going')));
+    card.appendChild(m);
+    card.appendChild(el('div','nm',e.emoji+' '+nameOf(e)));
+    const lv=el('div','lv',t('lvLabel')+' ');lv.appendChild(el('span','s',starStr(e.level)));card.appendChild(lv);
+    const nt=noteOf(e);
+    if(nt){const n=el('div','note');n.appendChild(el('small','','💌 '+t('from')));n.appendChild(document.createTextNode('「'+nt+'」'.replace(/^「|」$/g,m=>lang==='ja'?m:'')));
+      if(lang!=='ja'){n.lastChild.textContent='“'+nt+'”'}
+      card.appendChild(n)}
+    const d=el('button','del','✕');d.type='button';d.setAttribute('data-demo','delete-entry');d.setAttribute('aria-label',t('del'));
+    d.onclick=()=>{data.entries=data.entries.filter(x=>x.id!==e.id);save();render();toast(t('deleted'))};
+    card.appendChild(d);li.appendChild(card);tl.appendChild(li);
+  });
+  /* future chapter */
+  const f=el('li','item future');f.appendChild(el('span','dot','✦'));
+  const card=el('div','card');card.setAttribute('data-demo','future-chapter');
+  card.appendChild(el('div','meta',t('futureMeta')));
+  if(data.future){
+    card.appendChild(el('div','nm','🌠 '+data.future));
+    const b=el('button','btn ghost sm',t('futureEdit'));b.type='button';b.style.marginTop='10px';b.setAttribute('data-demo','future-edit');
+    b.onclick=()=>{const keep=data.future;data.future='';save();renderTimeline();const ta=$('fFut');ta.value=keep;ta.focus()};
+    card.appendChild(b);
+  }else{
+    card.appendChild(el('div','lv',t('futureH')));
+    const ta=el('textarea');ta.id='fFut';ta.maxLength=80;ta.placeholder=t('futurePh');ta.setAttribute('data-demo','input-future');ta.setAttribute('aria-label',t('futureH'));ta.style.marginTop='8px';
+    const b=el('button','btn sm',t('futureSave'));b.type='button';b.style.marginTop='8px';b.setAttribute('data-demo','save-future');
+    b.onclick=()=>{const v=ta.value.trim();if(!v){toast(t('futureEmpty'));return}data.future=v;save();renderTimeline();toast(t('futureSaved'))};
+    card.appendChild(ta);card.appendChild(b);
+  }
+  f.appendChild(card);tl.appendChild(f);
+}
+let level=4;
+function renderStars(){
+  const s=$('stars');s.textContent='';
+  for(let i=1;i<=5;i++){
+    const b=el('button',i<=level?'on':'','★');b.type='button';b.setAttribute('role','radio');b.setAttribute('aria-checked',i===level);
+    b.setAttribute('aria-label',t('starN',{n:i}));b.setAttribute('data-demo','star-'+i);
+    b.onclick=()=>{level=i;renderStars()};s.appendChild(b);
+  }
+}
+function render(){renderTitle();renderTimeline();renderStars()}
+
+/* ---- i18n apply ---- */
+function applyLang(){
+  document.documentElement.lang=lang;document.title=t('doc');
+  document.querySelectorAll('[data-i18n]').forEach(n=>n.textContent=t(n.dataset.i18n));
+  document.querySelectorAll('[data-i18n-ph]').forEach(n=>n.placeholder=t(n.dataset.i18nPh));
+  document.querySelectorAll('[data-i18n-aria]').forEach(n=>n.setAttribute('aria-label',t(n.dataset.i18nAria)));
+  $('bJa').setAttribute('aria-pressed',lang==='ja');$('bEn').setAttribute('aria-pressed',lang==='en');
+  $('err').textContent='';
+  render();
+}
+function setLang(l){lang=l;try{localStorage.setItem('lang',l)}catch(e){}applyLang()}
+$('bJa').onclick=()=>setLang('ja');$('bEn').onclick=()=>setLang('en');
+
+/* ---- actions ---- */
+let tt;
+function toast(m){const x=$('toast');x.textContent=m;x.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>x.classList.remove('show'),2200)}
+$('fYear').value=NOW;
+$('fYear').max=NOW;
+$('addForm').addEventListener('submit',ev=>{
+  ev.preventDefault();
+  const name=$('fName').value.trim(),year=parseInt($('fYear').value,10);
+  if(!name){$('err').textContent=t('errName');$('fName').focus();return}
+  if(!(year>=1950&&year<=NOW)){$('err').textContent=t('errYear');$('fYear').focus();return}
+  $('err').textContent='';
+  data.entries.push({id:data.nextId||(data.nextId=100),year,name,emoji:pickEmoji(name),level,note:$('fNote').value.trim(),ongoing:$('fOn').checked});
+  data.nextId=(data.nextId||100)+1;
+  save();
+  $('fName').value='';$('fNote').value='';$('fOn').checked=false;
+  render();toast(t('added'));
+});
+$('bSample').onclick=()=>{data=SAMPLE();save();render();toast(t('reset'))};
+$('bClear').onclick=()=>{data={entries:[],future:'',nextId:1};save();render();toast(t('cleared'))};
+$('shareBtn').onclick=()=>{
+  const T=pickTitle(calc());
+  const list=sorted().map(e=>e.emoji+' '+t('yearFmt',{y:e.year})+' '+nameOf(e)+' '+starStr(e.level)).join('\n');
+  const txt=t('shareText',{t:t('t_'+T.id),n:data.entries.length,list})+(data.future?'\n🌠 '+data.future:'');
+  const b=$('shareBox');b.hidden=false;b.value=txt;
+  let done=false;
+  try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(()=>toast(t('copied')),()=>toast(t('copyFail')));done=true}}catch(e){}
+  if(!done){try{b.select();document.execCommand('copy')?toast(t('copied')):toast(t('copyFail'))}catch(e){toast(t('copyFail'))}}
+};
+applyLang();
+</script>
+</body>
+</html>

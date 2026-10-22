@@ -1,2 +1,19 @@
-# love-chapters
-好きになった時期とハマり度を年表にして、ひとり時間に振り返り「おもしろ肩書き」「過去の自分からの一言」「未来の章」がもらえるアプリ
+# Love Chapters
+
+
+
+- ▶ **Try it:** https://25k1055.github.io/love-chapters/
+
+## About
+
+See the app and [IDEA.md](IDEA.md) (the idea log, in Japanese).
+
+## How it was made
+
+Built by shaping the idea together with AI (Claude) and publishing the AI-written code.
+The full conversation is in [IDEA.md](IDEA.md) (Japanese).
+
+## Files
+
+- `index.html` — the app (a single self-contained file)
+- `IDEA.md` — the idea log
